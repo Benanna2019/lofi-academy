@@ -38,7 +38,8 @@
   },
   "type": "module",
   "dependencies": {
-    "bits-ui": "^0.21.15",
+    "@instantdb/core": "^0.14.12",
+    "bits-ui": "^0.21.16",
     "clsx": "^2.1.1",
     "sst": "3.1.49",
     "svelte-inview": "^4.0.4",
