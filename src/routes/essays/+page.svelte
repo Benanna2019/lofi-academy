@@ -1,51 +1,68 @@
 <script>
-	import { slide, fly, fade } from 'svelte/transition';
-	import { quintOut, quintIn } from 'svelte/easing';
-	import {
-		getDirectionState,
-		right_panel,
-		left_panel
-	} from '../../app-context/panel-transition-state.svelte';
-
-	let animateText = $state(false);
-
-	$effect(() => {
-		setTimeout(() => {
-			animateText = true;
-		}, 1000);
-
-		() => {
-			animateText = false;
-		};
-	});
-
-	const directionState = getDirectionState();
-
-	const panelClass = directionState.direction === 'left' ? left_panel : right_panel;
+	import BlurFade from '$lib/components/motion/blurfade.svelte';
 </script>
 
-<div
-	transition:slide={{ delay: 250, duration: 300, easing: quintOut, axis: 'x' }}
-	class="prose relative flex h-screen w-1/2 flex-col items-center justify-center gap-4 border-r-[1px] border-white bg-white/30 backdrop-blur"
+<BlurFade
+	delay={0.25}
+	class="pointer-events-none absolute left-0 top-0 -z-10 h-full w-full overflow-x-clip"
 >
-	<div class="h-[95%]">
-		{#if animateText}
+	<section class="w-full px-6 pb-12 pt-16 sm:pb-20 sm:pt-32">
+		<div
+			class="fade animate-fade pointer-events-none absolute left-0 top-0 -z-10 h-full w-full overflow-x-clip"
+		>
 			<div
-				transition:fly={{ delay: 350, y: 200, duration: 1500 }}
-				class="pt-20 font-mono text-lg text-black"
+				class="parallax-element absolute top-0 h-[1000px] w-full transform-gpu after:absolute after:bottom-0 after:left-0 after:h-full after:w-full after:bg-gradient-to-t after:from-black after:to-black/0"
+				style="transform: translateY(-18.3px) translate3d(0px, 0px, 0px);"
 			>
-				<h1 class="text-3xl">Lofi Academy</h1>
-
-				<p class="pt-6">We are choosing to invest in a different future.</p>
-
-				<p class="pt-6">A future where data and software can be crafted</p>
-				<p class="pt-2">with the smallest number of people in mind.</p>
-
-				<p class="pt-6">Where "local" starts to mean something again.</p>
-
-				<p class="pt-6">A world where building is for joy and purpose.</p>
-				<p class="pt-6 font-bold italic">And Local is First.</p>
+				<img
+					alt="page background"
+					fetchpriority="high"
+					decoding="async"
+					data-nimg="fill"
+					class="absolute inset-0 h-[100%] w-[100%] object-cover"
+					src="/lofilibrary.png"
+				/>
 			</div>
-		{/if}
-	</div>
-</div>
+			<!-- Keep this but find ideas more fitting for pages -->
+			<!-- <div
+				class="parallax-element absolute top-0 flex h-max w-full transform-gpu items-end justify-end"
+				style="transform: translateY(-73.2px) translate3d(0px, 0px, 0px);"
+			>
+				<img
+					alt="Satellite"
+					class="homepageBounce mr-[10%] mt-[10%]"
+					height="400"
+					src=""
+					loading="lazy"
+					width="400"
+				/>
+			</div> -->
+		</div>
+		<header>
+			<BlurFade delay={0.7} class="mx-auto flex w-full max-w-7xl flex-col gap-6 sm:gap-10">
+				<h1
+					class="text-balance text-7xl font-[800] leading-[1] -tracking-[2.5px] text-white sm:text-[80px] [@media(max-width:500px)]:text-5xl"
+				>
+					Local First Essays <br class="hidden lg:inline" /> and deep dives
+				</h1>
+				<h2
+					class="reveal animate-revealHero2 -mt-2 text-balance text-xl font-medium text-neutral-100 sm:-mt-4"
+				>
+					Research and learn the how and why <br class="hidden lg:inline" />
+					of building local first applications.
+					<br class="hidden lg:inline" />
+				</h2>
+				<!-- Should probably leave the below based off if they are logged in or not -->
+				<!-- <div
+					class="reveal animate-revealHero3 flex flex-col gap-2 sm:items-center [@media(min-width:340px)]:flex-row"
+				>
+					<a
+						aria-label="Get started for free"
+						class="group flex w-max items-center gap-1 rounded-full border-white bg-neutral-200 px-3.5 py-2 text-sm font-semibold text-neutral-800 transition-colors sm:hover:bg-white sm:hover:text-black"
+						href="https://app.outerbase.com">Get started for free</a
+					>
+				</div> -->
+			</BlurFade>
+		</header>
+	</section>
+</BlurFade>

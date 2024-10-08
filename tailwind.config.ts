@@ -58,7 +58,8 @@ const config: Config = {
 				sans: [...fontFamily.sans]
 			},
 			backgroundImage: {
-				'baking-software': "url('/bakingsoftware.png')"
+				'baking-software': "url('/bakingsoftware.png')",
+				'working-outdoors': "url('/outdoorworking.png')"
 			}
 		}
 	}
