@@ -43,13 +43,14 @@
 				<h1
 					class="reveal animate-revealHero1 text-balance text-7xl font-[800] leading-[1] -tracking-[2.5px] text-white sm:text-[80px] [@media(max-width:500px)]:text-5xl"
 				>
-					Local First Essays <br class="hidden lg:inline" /> and deep dives
+					Local First Web <br class="hidden lg:inline" />
+					Development Workshops
 				</h1>
 				<h2
 					class="reveal animate-revealHero2 -mt-2 text-balance text-xl font-medium text-neutral-100 sm:-mt-4"
 				>
-					Research and learn the how and why <br class="hidden lg:inline" />
-					of building local first applications.
+					Practical workshops for learning <br class="hidden lg:inline" />
+					and building local first applications.
 					<br class="hidden lg:inline" />
 				</h2>
 				<!-- Should probably leave the below based off if they are logged in or not -->
