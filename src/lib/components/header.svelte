@@ -92,7 +92,7 @@
 					<Button
 						variant="link"
 						aria-label="Workshops"
-						class="group flex w-max cursor-default items-center gap-1 px-3.5 py-2 text-sm font-medium text-white transition-colors sm:hover:text-neutral-300"
+						class="group flex w-max cursor-default items-center gap-1 px-3.5 py-2 text-base font-medium text-white transition-colors sm:hover:text-neutral-300"
 						href="/workshops">Workshops</Button
 					>
 				</li>
@@ -100,7 +100,7 @@
 					<Button
 						variant="link"
 						aria-label="Tips"
-						class="group flex w-max cursor-default items-center gap-1 px-3.5 py-2 text-sm font-medium text-white transition-colors sm:hover:text-neutral-300"
+						class="group flex w-max cursor-default items-center gap-1 px-3.5 py-2 text-base font-medium text-white transition-colors sm:hover:text-neutral-300"
 						href="/tips">Tips</Button
 					>
 				</li>
@@ -108,7 +108,7 @@
 					<Button
 						variant="link"
 						aria-label="Tutorials"
-						class="group flex w-max cursor-default items-center gap-1 px-3.5 py-2 text-sm font-medium text-white transition-colors sm:hover:text-neutral-300"
+						class="group flex w-max cursor-default items-center gap-1 px-3.5 py-2 text-base font-medium text-white transition-colors sm:hover:text-neutral-300"
 						href="/tutorials">Tutorials</Button
 					>
 				</li>
@@ -116,7 +116,7 @@
 					<Button
 						variant="link"
 						aria-label="Essays"
-						class="group flex w-max cursor-default items-center gap-1 px-3.5 py-2 text-sm font-medium text-white transition-colors sm:hover:text-neutral-300"
+						class="group flex w-max cursor-default items-center gap-1 px-3.5 py-2 text-base font-medium text-white transition-colors sm:hover:text-neutral-300"
 						href="/essays">Essays</Button
 					>
 				</li>
@@ -153,39 +153,34 @@
 				</div>
 			</ul>
 			<div class="hidden items-center gap-4 md:flex">
-				{#if user.state.user}
-					{@render userMenu()}
-				{:else}
-					<Dialog.Root>
-						<Dialog.Trigger>
-							<span
-								aria-label="Log in"
-								class="group relative flex w-max items-center gap-1 px-3.5 py-2 text-sm font-medium text-white transition-colors sm:hover:text-neutral-300"
-								>Log in<span
-									class="pointer-events-none absolute left-1/2 top-0 mt-9 flex w-max -translate-x-1/2 select-none items-center gap-1.5 rounded border border-white/10 bg-white/20 p-0.5 pl-1 text-xs font-semibold text-white opacity-0 shadow-xl drop-shadow-sm backdrop-blur-lg transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-hover:delay-500"
-									>Login <span
-										class="rounded-sm border border-white/20 bg-white/30 px-1 py-0 font-bold drop-shadow-sm"
-										>O</span
-									></span
-								>
-							</span>
-						</Dialog.Trigger>
-						<Dialog.Content>
-							<Dialog.Header>
-								<Dialog.Description>
-									{@render modalContent()}
-								</Dialog.Description>
-							</Dialog.Header>
-						</Dialog.Content>
-					</Dialog.Root>
-				{/if}
-				<a
-					aria-label="Subscribe To Newsletter"
-					class="group flex w-max items-center gap-1 rounded-full border-white bg-neutral-200 px-3.5 py-2 text-sm font-semibold text-neutral-800 transition-colors sm:hover:bg-white sm:hover:text-black"
-					target="_blank"
-					rel="noopener noreferrer"
-					href="https://faequeite.ck.page/eb37af7d8f">Subscribe</a
-				>
+				<div class="w-32">
+					{#if user.state.user}
+						{@render userMenu()}
+					{:else}
+						<Dialog.Root>
+							<Dialog.Trigger>
+								<span
+									aria-label="Log in"
+									class="group relative flex w-max items-center gap-1 px-3.5 py-2 text-base font-medium text-white transition-colors sm:hover:text-neutral-300"
+									>Log in<span
+										class="pointer-events-none absolute left-1/2 top-0 mt-9 flex w-max -translate-x-1/2 select-none items-center gap-1.5 rounded border border-white/10 bg-white/20 p-0.5 pl-1 text-xs font-semibold text-white opacity-0 shadow-xl drop-shadow-sm backdrop-blur-lg transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-hover:delay-500"
+										>Login <span
+											class="rounded-sm border border-white/20 bg-white/30 px-1 py-0 font-bold drop-shadow-sm"
+											>O</span
+										></span
+									>
+								</span>
+							</Dialog.Trigger>
+							<Dialog.Content>
+								<Dialog.Header>
+									<Dialog.Description>
+										{@render modalContent()}
+									</Dialog.Description>
+								</Dialog.Header>
+							</Dialog.Content>
+						</Dialog.Root>
+					{/if}
+				</div>
 			</div>
 		</nav>
 		<button aria-label="Open mobile nav" class="p-2 md:hidden" onclick={toggleMobileMenu}>
@@ -232,27 +227,26 @@
 			<nav class="flex gap-10 [@media(min-width:400px)]:gap-20">
 				<div class="flex flex-col">
 					<div class="mb-6 w-full">
-						<p class="pb-2 font-semibold opacity-50">Features</p>
+						<!-- <p class="pb-2 font-semibold opacity-50">Features</p> -->
 						<ul>
 							<li class="my-2 w-full">
-								<a class="text-xl font-medium" href="/ai/">Outerbase AI</a>
-							</li>
-							<li class="my-2 w-full"><a class="text-xl font-medium" href="/tables/">Tables</a></li>
-							<li class="my-2 w-full">
-								<a class="text-xl font-medium" href="/queries/">Queries</a>
+								<a class="text-xl font-medium" href="/">Home</a>
 							</li>
 							<li class="my-2 w-full">
-								<a class="text-xl font-medium" href="/dashboards/">Dashboards</a>
+								<a class="text-xl font-medium" href="/workshops">Workshops</a>
 							</li>
 							<li class="my-2 w-full">
-								<a class="text-xl font-medium" href="/data-catalog/">Data Catalog</a>
+								<a class="text-xl font-medium" href="/tips">Tips</a>
 							</li>
 							<li class="my-2 w-full">
-								<a class="text-xl font-medium" href="/connections/">Connections</a>
+								<a class="text-xl font-medium" href="/tutorials">Tutorials</a>
+							</li>
+							<li class="my-2 w-full">
+								<a class="text-xl font-medium" href="/essays">Essays</a>
 							</li>
 						</ul>
 					</div>
-					<div class="mb-6 w-full">
+					<!-- <div class="mb-6 w-full">
 						<p class="pb-2 font-semibold opacity-50">Solutions</p>
 						<ul>
 							<li class="my-2 w-full">
@@ -262,9 +256,9 @@
 								<a class="text-xl font-medium" href="/solutions/for-enterprise/">For enterprise</a>
 							</li>
 						</ul>
-					</div>
+					</div> -->
 				</div>
-				<div class="flex flex-col">
+				<!-- <div class="flex flex-col">
 					<div class="mb-6 w-full">
 						<p class="pb-2 font-semibold opacity-50">Developers</p>
 						<ul>
@@ -276,7 +270,7 @@
 									class="text-xl font-medium"
 									rel="noopener noreferrer"
 									target="_blank"
-									href="https://docs.outerbase.com">Documentation</a
+									href="">Documentation</a
 								>
 							</li>
 							<li class="my-2 w-full">
@@ -299,7 +293,7 @@
 									class="text-xl font-medium"
 									rel="noopener noreferrer"
 									target="_blank"
-									href="https://twitter.com/outerbase">Twitter</a
+									href="">Twitter</a
 								>
 							</li>
 							<li class="my-2 w-full">
@@ -307,18 +301,39 @@
 							</li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
 			</nav>
 			<div class="mt-10 flex gap-4 *:inline *:w-1/2 *:text-center *:text-base">
 				<a
-					aria-label="Sign up"
+					aria-label="Newsletter Sign Up"
 					class="group flex w-max items-center gap-1 rounded-full border-white bg-neutral-200 px-3.5 py-2 text-sm font-semibold text-neutral-800 transition-colors sm:hover:bg-white sm:hover:text-black"
-					href="https://app.outerbase.com/signup/">Sign up</a
-				><a
-					aria-label="Log in"
-					class="group flex w-max items-center gap-1 rounded-full border-white bg-neutral-200 px-3.5 py-2 text-sm font-semibold text-neutral-800 transition-colors sm:hover:bg-white sm:hover:text-black"
-					href="https://app.outerbase.com/">Log in</a
+					href="https://faequeite.ck.page/eb37af7d8f">Newsletter</a
 				>
+				{#if user.state.user}
+					<span
+						aria-label="Profile"
+						role="button"
+						tabindex="0"
+						class="group flex w-max items-center gap-1 rounded-full border-white bg-neutral-200 px-3.5 py-2 text-sm font-semibold text-neutral-800 transition-colors sm:hover:bg-white sm:hover:text-black"
+						onclick={handleSignOut}
+						onkeypress={handleSignOut}>Logout</span
+					>
+				{:else}
+					<Dialog.Root>
+						<Dialog.Trigger
+							class="group flex w-max items-center gap-1 rounded-full border-white bg-neutral-200 px-3.5 py-2 text-sm font-semibold text-neutral-800 transition-colors sm:hover:bg-white sm:hover:text-black"
+						>
+							<span aria-label="Profile">Login</span>
+						</Dialog.Trigger>
+						<Dialog.Content>
+							<Dialog.Header>
+								<Dialog.Description>
+									{@render modalContent()}
+								</Dialog.Description>
+							</Dialog.Header>
+						</Dialog.Content>
+					</Dialog.Root>
+				{/if}
 			</div>
 		</nav>
 	{/if}
@@ -330,13 +345,13 @@
 {#snippet userMenu()}
 	<DropdownMenu.Root>
 		<DropdownMenu.Trigger asChild let:builder>
-			<Button builders={[builder]} variant="secondary" size="icon" class="rounded-full">
+			<Button builders={[builder]} variant="link" size="icon">
 				<Avatar.Root>
 					{#if user.state.user.avatarUrl}
 						<!-- <Avatar.Image src={user.state.user.avatarUrl} /> -->
 					{/if}
-					<Avatar.Fallback class=" bg-black text-white">
-						<CircleUser class="h-5 w-5" />
+					<Avatar.Fallback class="bg-transparent text-white">
+						<CircleUser class="h-6 w-6" />
 					</Avatar.Fallback>
 				</Avatar.Root>
 				<span class="sr-only">Toggle user menu</span>
@@ -345,10 +360,10 @@
 		<DropdownMenu.Content align="end">
 			<DropdownMenu.Label>My Account</DropdownMenu.Label>
 			<DropdownMenu.Separator />
-			<DropdownMenu.Item>Settings</DropdownMenu.Item>
+			<!-- <DropdownMenu.Item>Settings</DropdownMenu.Item>
 			<DropdownMenu.Item>Support</DropdownMenu.Item>
-			<DropdownMenu.Separator />
-			<DropdownMenu.Item on:click={handleSignOut}>Logout</DropdownMenu.Item>
+			<DropdownMenu.Separator /> -->
+			<DropdownMenu.Item onclick={handleSignOut}>Logout</DropdownMenu.Item>
 		</DropdownMenu.Content>
 	</DropdownMenu.Root>
 {/snippet}
@@ -375,7 +390,7 @@
 		{/if}
 		<div class="relative">
 			<div class="absolute inset-0 flex items-center">
-				<span class="w-full border-t" />
+				<span class="w-full border-t"></span>
 			</div>
 			<div class="relative flex justify-center text-xs uppercase">
 				<span class="bg-background px-2 text-muted-foreground"> Or continue with </span>

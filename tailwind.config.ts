@@ -1,5 +1,6 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
 
 const config: Config = {
 	darkMode: ['class'],
@@ -47,7 +48,21 @@ const config: Config = {
 				card: {
 					DEFAULT: 'hsl(var(--card) / <alpha-value>)',
 					foreground: 'hsl(var(--card-foreground) / <alpha-value>)'
-				}
+				},
+				white: '#fff',
+				green: colors.emerald,
+				yellow: colors.amber,
+				purple: colors.violet,
+				gray: colors.neutral,
+				'gray-150': '#EEEFF2',
+				'gray-1000': '#050505',
+				black: '#050505',
+				'design-details': '#458886',
+				'design-details-light': '#EEF3F3',
+				'design-details-dark': '#273F3F',
+				'hacker-news': '#FF965A',
+				twitter: '#479BEA',
+				current: 'currentColor'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -60,6 +75,19 @@ const config: Config = {
 			backgroundImage: {
 				'baking-software': "url('/bakingsoftware.png')",
 				'working-outdoors': "url('/outdoorworking.png')"
+			},
+			animation: {
+				orbit: 'orbit calc(var(--duration)*1s) linear infinite'
+			},
+			keyframes: {
+				orbit: {
+					'0%': {
+						transform: 'rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)'
+					},
+					'100%': {
+						transform: 'rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)'
+					}
+				}
 			}
 		}
 	}
